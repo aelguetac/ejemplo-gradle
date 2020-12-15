@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Pipeline') {
             steps {
-                script{
-			stage('build & test'){
+                script {
+			stage('build test') {
 
 
             
 	    		}
-			stage('sonar'){
+			stage('sonar') {
 
 
 
@@ -32,4 +32,5 @@ pipeline {
 			}
 		}
 	}
+}
 }
