@@ -22,7 +22,7 @@ pipeline {
 			}
 			stage('Run'){
 			//sh 'nohup gradlew bootrun &'
-			bat "nohup start gradlew bootRun &"
+			bat "start gradlew bootRun"
 
 			}
 
