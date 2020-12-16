@@ -11,7 +11,6 @@ pipeline {
             
 	    		}
 			stage('sonar') {
-			stage('SonarQube analysis') {
 			def scannerHome = tool 'sonar_scanner';
     			
 			withSonarQubeEnv('sonar') { 
@@ -19,7 +18,7 @@ pipeline {
 	bat "${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
 
 					}
- 				}
+ 				
 			}
 			stage('Run'){
 			sh "nohup gradlew bootrun &"
