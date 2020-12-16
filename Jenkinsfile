@@ -36,7 +36,7 @@ pipeline {
 			{
 			sh 'sleep 40'
 			nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'test-nexus',
-                	packages: [[ $class: '', MavenAssetList: [[classifier: 'RELEASE', extensions: 'jar' ,
+                	packages: [[ $class: 'MavenPackage', MavenAssetList: [[classifier: '', extensions: 'jar' ,
                 	filePath: 'build/libs/DevOpsUsach2020-0.0.1.jar']],
                 	mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', 
 			packaging : 'jar', version: '0.0.1']]]
