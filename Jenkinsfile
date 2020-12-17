@@ -14,15 +14,15 @@ pipeline {
 			def scannerHome = tool 'sonar_scanner';
     			
 			withSonarQubeEnv('sonar') { 
-//      				sh "${scannerHome}/bin/sonar-scanner  -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
-	bat "${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
+      			sh "${scannerHome}/bin/sonar-scanner  -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
+	//bat "${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
 
 					}
  				
 			}
 			stage('Run'){
-			//sh 'nohup gradlew bootrun &'
-			bat "start gradlew bootRun"
+			sh 'nohup gradlew bootrun &'
+			//bat "start gradlew bootRun"
 
 			}
 
@@ -37,7 +37,7 @@ pipeline {
 			sh 'sleep 40'
 			nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'test-nexus',
                 	packages: [[ $class: 'MavenPackage', MavenAssetList: [[classifier: '', extensions: '' ,
-                	filePath: '/Users/EscalamientoSoporte/ejemplo-gradle/ejemplo-gradle/build/libs/DevOpsUsach2020-0.0.1.jar']],
+                	filePath: './build/libs/DevOpsUsach2020-0.0.1.jar']],
                 	mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', 
 			packaging : 'jar', version: '0.0.1']]]
                         }
