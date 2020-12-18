@@ -24,6 +24,7 @@ pipeline {
                         }
 			}
 		}
+	}
 		post {
 
 			sucess {
@@ -40,6 +41,6 @@ pipeline {
 			}
 		}
 
-	}
+	
 }
 
