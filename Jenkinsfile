@@ -47,7 +47,7 @@ pipeline {
 			failure {
                         //        steps {
                         //        script {
-	slackSend color: 'danger', message: "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecucion fallida en stage [${env.TAREA}], teamDomain: 'devops-usach-2020', tokenCredentialId: 'slack'
+	slackSend color: 'danger', message: "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecucion fallida en stage [${env.TAREA}]", teamDomain: 'devops-usach-2020', tokenCredentialId: 'slack'
 			//	mensajef = "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecucion fallida en stage [${TAREA}]"
                                 //println env.TAREA." "env.JOB_NAME
 			//	slackSend color: 'danger', message: "${mensajef}", teamDomain: 'devops-usach-2020', tokenCredentialId: 'slack'				
