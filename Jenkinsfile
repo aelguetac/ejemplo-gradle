@@ -7,8 +7,8 @@ pipeline {
         	stage('Pipeline') {
             		steps {
                 		script {
-					env.TAREA = ''
-					def cadena = "hola ${params.buildtool}"
+					//env.TAREA = ''
+					//def cadena = "hola ${params.buildtool}"
 					def cadena = "{env.TAREA}"
 					echo params.herramienta
 					if (params.herramienta == 'gradle' ){
