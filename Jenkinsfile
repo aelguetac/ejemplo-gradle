@@ -33,17 +33,22 @@ pipeline {
 				//println params.buildtool
 
 				//def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
-				mensajes = "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecución exitosa"
+				steps {
+                                	script {
+				def mensajes = "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecución exitosa"
 //	Build Success: [Nombre Alumno][Nombre Job][buildTool] Ejecución exitosa.
 //	Build Failure: [Nombre Alumno][Nombre Job][buildTool] Ejecución fallida en stage [Stage]
 
 				slackSend color: 'good', message: '"${mensajes}"', teamDomain: 'devops-usach-2020', tokenCredentialId: 'slack'
-			}
+			}}}
 			failure {
-				mensajef = "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecución fallida en stage [${TAREA}]"
+                                steps {
+                                script {
+
+				def mensajef = "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecución fallida en stage [${TAREA}]"
                                 //println env.TAREA." "env.JOB_NAME
 				slackSend color: 'danger', message: '"${mensajef}"', teamDomain: 'devops-usach-2020', tokenCredentialId: 'slack'				
-
+				}}
 			}
 		}
 
