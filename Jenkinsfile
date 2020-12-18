@@ -24,7 +24,7 @@ pipeline {
                         }
 			}
 		}
-		post{
+		post {
 
 			sucess {
 				println env.TAREA
