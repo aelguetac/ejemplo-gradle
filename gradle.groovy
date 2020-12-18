@@ -8,13 +8,14 @@
 def call(){
 
                         stage('build test') {
-			env.TAREA = 'build test'
+			env.TAREA = env.STAGE_NAME
                         sh "./gradlew clean build"
 
 
                         }
                         stage('sonar') {
-			env.TAREA = 'sonar'
+			
+			env.TAREA = env.STAGE_NAME
                         def scannerHome = tool 'sonar_scanner';
 
                         withSonarQubeEnv('sonar') {
