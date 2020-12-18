@@ -27,7 +27,7 @@ pipeline {
 	}
 		post {
 
-			sucess {
+			success {
 				//println env.TAREA
 				//println env.JOB_NAME
 				//println params.buildtool
