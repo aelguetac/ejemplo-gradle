@@ -10,7 +10,7 @@ pipeline {
 					env.TAREA = ''
 					//def cadena = "hola ${params.buildtool}"
 					def cadena = "{env.TAREA}"
-					echo "buildtool usada $(params.herramienta)"
+					printl("buildtool usada $(params.herramienta)")
 					if (params.herramienta == 'gradle' ){
 					        def ejecucion = load 'gradle.groovy'
 					        ejecucion.call()
