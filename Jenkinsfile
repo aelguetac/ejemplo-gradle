@@ -9,7 +9,7 @@ pipeline {
                 		script {
 					env.TAREA = ''
 					//def cadena = "hola ${params.buildtool}"
-					def cadena = "{env.TAREA}"
+					//def cadena = "{env.TAREA}"
 					def mensajes = "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecucion exitosa"
 					def mensajef = "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecucion fallida en stage [${TAREA}]"
 					echo "buildtool usada " + params.herramienta
@@ -40,17 +40,17 @@ pipeline {
 			//	mensajes = "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecucion exitosa"
 //	Build Success: [Nombre Alumno][Nombre Job][buildTool] Ejecución exitosa.
 //	Build Failure: [Nombre Alumno][Nombre Job][buildTool] Ejecución fallida en stage [Stage]
-
-				slackSend color: 'good', message: "${mensajes}", teamDomain: 'devops-usach-2020', tokenCredentialId: 'slack'
+				slackSend color: 'good', message: "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecucion exitosa", teamDomain: 'devops-usach-2020', tokenCredentialId: 'slack'
+				//slackSend color: 'good', message: "${mensajes}", teamDomain: 'devops-usach-2020', tokenCredentialId: 'slack'
 			//}}
 			}
 			failure {
                         //        steps {
                         //        script {
-
+	slackSend color: 'danger', message: "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecucion fallida en stage [${TAREA}], teamDomain: 'devops-usach-2020', tokenCredentialId: 'slack'
 			//	mensajef = "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecucion fallida en stage [${TAREA}]"
                                 //println env.TAREA." "env.JOB_NAME
-				slackSend color: 'danger', message: "${mensajef}", teamDomain: 'devops-usach-2020', tokenCredentialId: 'slack'				
+			//	slackSend color: 'danger', message: "${mensajef}", teamDomain: 'devops-usach-2020', tokenCredentialId: 'slack'				
 			//	}}
 			}
 		}
