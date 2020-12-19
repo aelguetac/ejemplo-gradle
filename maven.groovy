@@ -33,6 +33,7 @@ def call(){
 
                          stage('Test'){
 			 env.TAREA = env.STAGE_NAME
+			 sh 'sleep 20'
                         sh "curl -X GET 'http://localhost:8087/rest/mscovid/test?msg=testing'"
 
                         }
