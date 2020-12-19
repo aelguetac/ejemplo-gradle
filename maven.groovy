@@ -37,9 +37,10 @@ def call(){
                         sh "curl -X GET 'http://localhost:8089/rest/mscovid/test?msg=testing'"
 
                         }
-
                         stage('Nexus'){
 			env.TAREA = env.STAGE_NAME
+			echo 'Testing failed!'
+                        currentBuild.result = 'UNSTABLE'
                         nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'test-nexus',
                 packages: [[ $class: 'MavenPackage', MavenAssetList: [[classifier: 'RELEASE', extensions: 'jar' ,
                 filePath: './nada/build/libs/DevOpsUsach2020-0.0.1.jar']],
