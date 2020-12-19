@@ -2,7 +2,7 @@ pipeline {
     agent any
 
 	parameters { choice (name: 'herramienta', choices : ['gradle','maven'], description :'')}
-
+	
 	stages {
         	stage('Pipeline') {
             		steps {
@@ -10,8 +10,8 @@ pipeline {
 					env.TAREA = ''
 					//def cadena = "hola ${params.buildtool}"
 					//def cadena = "{env.TAREA}"
-					def mensajes = "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecucion exitosa"
-					def mensajef = "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecucion fallida en stage [${TAREA}]"
+					//def mensajes = "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecucion exitosa"
+					//def mensajef = "Build status ${buildStatus}: [Alejandro Elgueta] [${params.herramienta}] Ejecucion fallida en stage [${TAREA}]"
 					echo "buildtool usada " + params.herramienta
 					if (params.herramienta == 'gradle' ){
 					        def ejecucion = load 'gradle.groovy'
