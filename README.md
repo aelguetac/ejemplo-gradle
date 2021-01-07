@@ -8,4 +8,4 @@ gradle bootRun
 
 # Test: 
 curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'
-
+# se agrega bach release_0.0.1
