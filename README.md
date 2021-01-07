@@ -8,4 +8,4 @@ gradle bootRun
 
 # Test: 
 curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'
-
+#branch release-v1-0-0 test 2
